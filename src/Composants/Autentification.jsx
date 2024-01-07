@@ -56,7 +56,7 @@ function Authentication() {
         </section>
       </div>
     </main>
-  );
+  ); 
 }
 
 export default Authentication;
