@@ -9,10 +9,15 @@ export default function Inscription() {
   const[Password,SetPassword] = useState('')
   const[CPassword,SetCPassword] = useState('')
   const[Gender,SetGender] = useState('')
+  const[image,setImage] = useState('')
   const[MessageSuccess,SetMessageSuccess] = useState('none')
   const[MessageDanger,SetMessageDanger] = useState('none')
   const[MessageCPassowrd,SetMessageCPassowrd] = useState('none')
   const Dispatch = useDispatch()
+  const HandlerImageProfile = (e) => {
+    const Image = (e.target.files[0].name)
+    setImage(Image)
+  }
   const Handler_add_User = () =>{
     if(Username === "" || Password === "" || CPassword === "" || Gender === "" ){
       SetMessageDanger('block')
@@ -20,7 +25,7 @@ export default function Inscription() {
     }
     else{
       if (Password === CPassword){
-        Dispatch(inscription(Username,Password,Gender))
+        Dispatch(inscription(Username,Password,Gender,image))
         SetMessageSuccess('block')
         setTimeout(()=>{SetMessageSuccess('none')},Timer)
       }else{
@@ -49,6 +54,11 @@ export default function Inscription() {
           <label className="text-light" htmlFor="Confirm_Password">Confirm Password</label>
           <br />
           <input onChange={(e)=>SetCPassword(e.target.value)} id="Confirm_Password" type="password" />
+        </div>
+        <div className="my-2">
+          <label className="text-light" htmlFor="Confirm_Password">Image of profile</label>
+          <br />
+          <input onChange={(e) => HandlerImageProfile(e)} id="Image_of_profile" type="file" />
         </div>
         <div className="my-2">
           <label className="text-light" htmlFor="Gender">Gender</label>

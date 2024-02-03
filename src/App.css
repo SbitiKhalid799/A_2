@@ -4,7 +4,7 @@
   --blackopacity : #2375abc1;
   --cclc : none;
   --purpel :rgb(93, 0, 93);
-  --hover : rgba(93, 0, 93, 0.486);
+  --hover: rgba(93, 0, 93, 0.486);
 }
 
   .Lien{
@@ -71,7 +71,8 @@
   .ChoisBtn button,
   .Message button,
   .AddPub button,
-  .Message1 button{
+  .Message1 button,
+  .Message1Commant button{
     width: 200px;
     border: 1px solid var(--white);
     background: none;
@@ -85,9 +86,9 @@
   .Search button:hover,
   .ChoisBtn button:hover,
   .Message button:hover,
-  .LikePost button:hover,
   .AddPub button:hover,
-  .Message1 button:hover {
+  .Message1 button:hover,
+  .Message1Commant button:hover {
     background: var(--hover);
     color :var(--white);
     border: 1px solid var(--white);
@@ -184,7 +185,7 @@
     left: 0;
     width: 100%;
   }
-  .Search input,.Message input,.Message1 input{
+  .Search input,.Message input,.Message1 input,.Message1Commant input{
     border-radius: 500px;
     background: rgba(0, 0, 0, 0.316);
     border: 1px solid var(--white);
@@ -201,12 +202,17 @@
     width: 100%;
   }
 
-  .Search input:focus,.Message input:focus,.Message1 input:focus{
+  .Search input:focus,
+  .Message input:focus,
+  .Message1 input:focus,
+  .Message1Commant button:focus{
     outline: none;
     background: var(--black);
   }
 
-  .Message button,.Message1 button{
+  .Message button,
+  .Message1 button,
+  .Message1Commant button{
     width:70px;
     height: 35px;
   }
@@ -225,7 +231,7 @@
 
   .Bakground div{
     background: var(--image);
-    background-size: cover; /* This ensures the background image covers the entire viewport */
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
     height: 200px;
@@ -374,23 +380,6 @@ td{
   width: 30px;
 }
 
-
-.Like{
-  animation: .5s linear 0s 2 normal;
-}
-
-@keyframes Like {
-  0%{
-    transform:  scale(1);
-  }
-  50%{
-    transform:  scale(1.5);
-  }
-  100%{
-    transform:  scale(1);
-  }
-}
-
 .Bakground{
   animation: .2s linear 0s 1 normal both;
   display: none;
@@ -415,3 +404,143 @@ td{
     display: none;
   }
 }
+
+.imageProfile,.imageProfilePost{
+  background-image: url('./Images/téléchargement.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  border-radius: 500px;
+  border: 2px solid var(--white);
+}
+
+.imageProfilePost{
+  width: 50px;
+  height: 50px;
+}
+
+.ModifierImageProfile{
+  background-color: rgba(49, 0, 49, 0.92);
+  width: 25px;
+  height: 25px;
+  color: var(--white);
+  border :2px solid var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 0px 3px 1px;
+  position: absolute;
+  top:110px;
+  transition:.5s;
+}
+
+.Like{
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-image: url('./Images/800px-Facebook_Like_button.svg.png');
+  background-size: cover;
+}
+
+.commantaire{
+  width: 30px;
+  height: 30px;
+  background-image:url("https://cdn-icons-png.flaticon.com/512/889/889101.png") ;
+  background-size:cover ;
+  border: none;
+  background-color:rgba(255, 0, 0, 0);
+  border-radius: 555px;
+}
+
+.PostBorderControle{
+  width: 90px;
+}
+
+.Commant{
+  transition: .2s;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(3, 3, 3, 0.414);
+  z-index: 1;
+}
+
+.Commant div{
+  transition: .2s;
+  width: 100vw;
+  position: fixed;
+  bottom:0;
+  background-color: rgb(28, 0, 48);
+  box-shadow: 0px 0px 2px 0px black;
+}
+
+.imageProfile img,.imageProfilePost img{
+  width :100%;
+  height :100%;
+  border-radius: 4545454px;
+}
+
+.imagePost{
+  width: 100%;
+  height: 250px;
+  max-height: 400px;
+  margin-bottom: 10px;
+  border-top: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+  backdrop-filter: blur(15px);
+}
+
+.imagePost img{
+  height: 100%;
+  max-width:100% ;
+  max-height: 700px;
+  min-height: 0px;
+}
+
+.tableauCommantaire{
+  width: 100%;
+  text-align: center;
+  list-style-type: none;
+}
+
+.comm{
+  border: 1px solid var(--white);
+  display: inline;
+  max-width: 400px;
+  border-radius: 40px;
+  color: var(--white);
+  z-index: 1;
+  font-size: 17px;
+  margin: 40px;
+  background-color: var(--purpel);
+  padding: 4px 20px;
+}
+
+.CCC p ,.CCC h4{
+  display: inline;
+}
+
+.CCC {
+  text-align: center;
+}
+.Comcoc{
+  overflow-y: auto;
+}
+
+.Veiwthphoto{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.759);
+  top: 0;
+  left: 0;
+}
+
+.Veiwthphoto img {
+  width: 50vw;
+  border: 2px solid white;
+}
+
+
+/* ModifierImageProfile */

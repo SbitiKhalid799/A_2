@@ -24,9 +24,9 @@ export default function Addpost(props){
     return(
         <div style={{display:DDDdd,animationName:DDDd}} className="Bakground align-items-center justify-content">
             <div  className="FormAddPost d-flex flex-column align-items-center justify-content-center container p-3">
-            <label className="text-light w-100" htmlFor="User_name">Name the post</label>
+            <label className="text-light w-100" htmlFor="User_name">Image</label>
             <br />
-            <input onChange={(e)=> setNamePost(e.target.value) } id="User_name" type="text" />
+            <input onChange={(e)=> setNamePost(e.target.files[0].name) } id="User_name" type="file" />
             <br />
             <label className="text-light w-100" htmlFor="User_name">Description</label>
             <br />

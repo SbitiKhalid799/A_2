@@ -1,14 +1,28 @@
-export const inscription = (username,password,genre) =>{
+export const inscription = (username,password,genre,image) =>{
     return {
         type:'AJOUTER_UTILISATEUR',
-        payload:{id:0,username:username,password:password,genre:genre}
+        payload:{
+            id:0,
+            username:username,
+            password:password,
+            genre:genre,
+            imageProfile:image
+        }
     }
 }
 
 export const newPost = (id,name,Description) => {
     return {
         type : 'ADD_NEW_POST',
-        payload :{ userId:parseInt(id),id:0, name:name, Description: Description, like: 0, usersLike: [] }
+        payload :{ 
+            userId:parseInt(id),
+            id:0,
+            name:name,
+            Description: Description,
+            like: 0,
+            usersLike: [],
+            Commantes:[]
+        }
     }
 }
 
@@ -37,5 +51,16 @@ export const LikingPost = (idUser,idPost) =>{
     return {
         type:'LIKE_A_PUBLICATION',
         payload:{idUser,idPost}
+    }
+}
+
+export const AddCommante = (idu,commante,idPoste) => {
+    return {
+        type:'ADD_COMMANTE',
+        payload:{
+            idu,
+            commante,
+            idPoste
+        }
     }
 }

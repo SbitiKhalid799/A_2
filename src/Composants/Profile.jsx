@@ -36,7 +36,7 @@ export default function Profile() {
                                 <h3 className="removePostP">
                                     <button onClick={()=>HandlerId(e.id)} className="removePost">×</button>
                                 </h3>
-                                <Post Dis={'none'} key={i} ev={e}/>
+                                <Post dd={'none'} Dis={'none'} key={i} ev={e}/>
                             </div>))
                         }
                 </div>

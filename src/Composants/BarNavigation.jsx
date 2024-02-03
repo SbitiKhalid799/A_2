@@ -20,16 +20,59 @@ export default function Navigat(){
             setplaceNav(0)
             setSymbol('×')
         }
-    }
+    }    
     const Disconnect = () =>{
         SetDDD('Bakground')
         setDis('flex')
     }
+    const Chemin = user ? `${process.env.PUBLIC_URL}/imageProfile/${user.imageProfile}` : '';
+    const [width,setwidth] = useState("")
+    const [height,setheight] = useState("")
+    const [border,seTborder] = useState(15)
+    const [DSP,seTDSP] = useState('flex')
+    const [DSP1,seTDSP1] = useState('none')
+    const SStyle = {
+        zIndex:55,
+        width:`${width}`,
+        height:`${height}`,
+        borderRadius:`${border}px`
+    }
+    const HandlerStyle = () => {
+        setwidth('200px')
+        setheight("90px")
+        seTborder(0)
+        seTDSP('none')
+        setTimeout(()=>{seTDSP1('block')},200)
+    }
+    const HandlerStyleBack = () => {
+        setwidth('25px')
+        setheight("25px")
+        seTborder(15)
+        seTDSP('flex')
+        seTDSP1('none')
+    }
+    const [DDSP1,seTDDSP1] = useState('none')
+
     return(
         <>
         <nav className="NavBar p-2" style={{left:placeNav}}>
-        <h4 className="text text-light">{user.username}</h4>
-        <hr/>
+            <div onClick={() => seTDDSP1('none')} style={{display:DDSP1}} className="Veiwthphoto align-items-center justify-content-center">
+                <img src={Chemin} alt="" />
+            </div>
+            <div className="w-100 flex-column d-flex align-items-center justify-content-center">
+                <div onClick={HandlerStyleBack}  className="imageProfile m-3">
+                    <img src={Chemin} alt="" />
+                </div>
+                <div onClick={HandlerStyle} className="ModifierImageProfile" style={SStyle}>
+                    <p style={{display:DSP}} className="w-100 h-100 align-items-center justify-content-center">+</p>
+                    <ul style={{display:DSP1}} >
+                        <li onClick={() => seTDDSP1('flex')}>view photo</li>
+                        <li>change photo</li>
+                    </ul>
+                </div>
+                <h4 className="text text-light">{user.username}</h4>
+            </div>
+            <hr/>
             <ul>
                 <li><Link to={'../SingIn/'+id}>Home</Link></li>
                 <li><Link to={"/Profile/"+id}>Profile</Link></li>
